@@ -3,36 +3,40 @@
  * Repository: https://github.com/Yogesh7799/Playwright_Final_Framework-.git
  *
  * ---------------------------------------------------------------------------
- * JOB SETUP
- *   New Item -> Pipeline  (a Multibranch Pipeline also works)
+ * JOB SETUP (Jenkins UI)
+ *   New Item -> Pipeline
  *     Definition ....... Pipeline script from SCM
  *     SCM .............. Git
  *     Repository URL ... https://github.com/Yogesh7799/Playwright_Final_Framework-.git
  *     Branch Specifier . */main
  *     Script Path ...... Jenkinsfile
  *
- * JENKINS REQUIREMENTS
- *   Plugins .... Docker Pipeline, Allure Jenkins Plugin
- *   Agent ...... a Docker daemon reachable from the Jenkins agent
- *   Credential . "demoblaze-login"  (kind: Username with password)
- *                  username -> LOGIN_USERNAME
- *                  password -> LOGIN_PASSWORD
+ * AGENT
+ *   Runs on the built-in Windows node, so no Docker is required. It relies on
+ *   the NodeJS tool named "node.js" that is already configured under
+ *   Manage Jenkins -> Tools. If that tool is ever renamed, update the tools block.
  *
- * NOTE: the image tag below must track the @playwright/test version pinned in
- *       package.json. Browsers ship inside this image, so the pipeline never
- *       needs a `playwright install` step.
+ * CREDENTIAL
+ *   Manage Jenkins -> Credentials -> add "Username with password" with the id
+ *   "demoblaze-login"; it is bound to LOGIN_USERNAME / LOGIN_PASSWORD.
+ *
+ * REPORTS
+ *   JUnit results use built-in support. The Allure report uses the installed
+ *   Allure Jenkins Plugin (its commandline tool is configured as "default").
+ *
+ * NOTE
+ *   Playwright browsers are installed by this pipeline; that download is skipped
+ *   when the browser is already present on the node.
  * ---------------------------------------------------------------------------
  */
 
 pipeline {
 
-  agent {
-    docker {
-      image 'mcr.microsoft.com/playwright:v1.64.0-jammy'
-      // --ipc=host gives Chromium a usable /dev/shm inside the container.
-      // -u root    lets npm write into the Jenkins-mounted workspace.
-      args '--ipc=host -u root'
-    }
+  agent any
+
+  tools {
+    // Must match Manage Jenkins -> Tools -> NodeJS installations.
+    nodejs 'node.js'
   }
 
   options {
@@ -65,14 +69,14 @@ pipeline {
 
     stage('Toolchain') {
       steps {
-        sh 'node --version && npm --version'
+        bat 'node --version && npm --version'
       }
     }
 
     stage('Install dependencies') {
       steps {
-        sh 'npm ci'
-        sh 'npx playwright --version'
+        bat 'npm ci'
+        bat 'npx playwright install chromium'
       }
     }
 
@@ -85,8 +89,10 @@ pipeline {
               credentialsId: 'demoblaze-login',
               usernameVariable: 'LOGIN_USERNAME',
               passwordVariable: 'LOGIN_PASSWORD')]) {
-            sh """
-              rm -rf allure-results reports test-results
+            bat """
+              if exist allure-results rmdir /s /q allure-results
+              if exist reports rmdir /s /q reports
+              if exist test-results rmdir /s /q test-results
               npx playwright test --project=${params.PROJECT} --retries=${params.RETRIES} ${grepArg}
             """
           }
