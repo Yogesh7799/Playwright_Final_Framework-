@@ -8,7 +8,7 @@
  *     Definition ....... Pipeline script from SCM
  *     SCM .............. Git
  *     Repository URL ... https://github.com/Yogesh7799/Playwright_Final_Framework-.git
- *     Branch Specifier . */main
+ *     Branch Specifier . any branch named "main"
  *     Script Path ...... Jenkinsfile
  *
  * AGENT
