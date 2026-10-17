@@ -1,0 +1,11 @@
+{
+    "chat.mcp.serverSampling": {
+        "Playwright_Final_Freamwork/.vscode/mcp.json: playwright-test": {
+            "allowedModels": [
+                "copilot/auto",
+                "copilotcli/auto",
+                "agent-host-copilotcli:auto"
+            ]
+        }
+    }
+}

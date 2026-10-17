@@ -1,0 +1,16 @@
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+# Playwright CLI output (may contain credentials)
+#.playwright-cli/
+# Environment variables and secrets
+.env
+.env.*
+
+# Nested Playwright-CLI clone (own .git repo, no commits) - keep out of this history
+/Playwright-CLI/
