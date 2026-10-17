@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:master": "playwright test --grep @master",
+    "report": "playwright show-report reports"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

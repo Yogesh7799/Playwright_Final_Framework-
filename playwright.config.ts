@@ -47,7 +47,12 @@ export default defineConfig({
 
 //[/utils/CustomReporter.ts']
 
-['allure-playwright', {outputFolder: 'allure-results' }] ,
+    ['allure-playwright', {outputFolder: 'allure-results' }] ,
+
+
+// JUnit XML Report (consumed by the Jenkins JUnit step)
+
+['junit', { outputFile: 'reports/results.xml' }],
 
 
 // Allure Report
@@ -64,7 +69,7 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
-    headless: false,
+    headless: !!process.env.CI,
     video: 'retain-on-failure',
 viewport: { width: 1280, height: 720}, // Set default viewport size for consistency
   
