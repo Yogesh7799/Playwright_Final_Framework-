@@ -24,6 +24,18 @@
  *   JUnit results use built-in support. The Allure report uses the installed
  *   Allure Jenkins Plugin (its commandline tool is configured as "default").
  *
+ * EMAIL
+ *   Build notifications are sent to NOTIFY_EMAIL below. The mail step relies on
+ *   Jenkins' built-in mailer, so set up an SMTP server once in the UI:
+ *     Manage Jenkins -> System -> E-mail Notification
+ *       SMTP server ....... e.g. smtp.gmail.com
+ *       Use SSL ........... checked
+ *       SMTP Port ......... 465
+ *       Use SMTP Auth ..... checked
+ *       User Name ......... kateyogesh77@gmail.com
+ *       Password .......... Gmail App Password (not the account password)
+ *   Click "Test configuration by sending test e-mail" to verify.
+ *
  * NOTE
  *   Playwright browsers are installed by this pipeline; that download is skipped
  *   when the browser is already present on the node.
@@ -63,6 +75,8 @@ pipeline {
     CI = 'true'
     // Elvis guards against params being unset on a job's very first run.
     WEB_APP_URL = "${params.WEB_APP_URL ?: 'https://www.demoblaze.com/index.html'}"
+    // Receives build notifications; change here to re-point every mail step.
+    NOTIFY_EMAIL = 'kateyogesh77@gmail.com'
   }
 
   stages {
@@ -115,6 +129,29 @@ pipeline {
     }
     failure {
       echo 'Playwright run failed - check the Allure report and the archived traces/videos.'
+      mail to: env.NOTIFY_EMAIL,
+           subject: "[Jenkins] FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+           body: """Build ${env.BUILD_NUMBER} of ${env.JOB_NAME} FAILED.
+
+Branch ...: ${env.GIT_BRANCH ?: 'main'}
+Project ..: ${params.PROJECT}
+Grep .....: ${params.GREP ?: '(all tests)'}
+Build URL : ${env.BUILD_URL}
+Allure ...: ${env.BUILD_URL}allure
+"""
+    }
+    unstable {
+      echo 'Playwright run finished with unstable results - some tests were retried or flaky.'
+      mail to: env.NOTIFY_EMAIL,
+           subject: "[Jenkins] UNSTABLE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+           body: """Build ${env.BUILD_NUMBER} of ${env.JOB_NAME} is UNSTABLE.
+
+Branch ...: ${env.GIT_BRANCH ?: 'main'}
+Project ..: ${params.PROJECT}
+Grep .....: ${params.GREP ?: '(all tests)'}
+Build URL : ${env.BUILD_URL}
+Allure ...: ${env.BUILD_URL}allure
+"""
     }
   }
 }

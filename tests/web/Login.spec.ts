@@ -1,9 +1,7 @@
-import { test, expect } from '@playwright/test';
-
-import { Loginpage } from '../../pages/Login';
+import { test, expect } from '../../fixtures/login.fixture';
 
 const validUser = {
-  email: process.env.LOGIN_USERNAME ??'Yogesh_17102026',
+  email: process.env.LOGIN_USERNAME ?? 'Yogesh_17102026',
   password: process.env.LOGIN_PASSWORD ?? 'Password123',
 };
 
@@ -20,57 +18,35 @@ const emptyFieldCases = [
 ];
 
 test.describe('Login Page Tests @master', () => {
-  let loginpage: Loginpage;
-
-  test.beforeEach(async ({ page }) => {
-    loginpage = new Loginpage(page);
-    await loginpage.goto();
-    await loginpage.clickLoginLink();
+  test('login page is displayed', async ({ loginPage }) => {
+    await expect(loginPage.UsernameInput).toBeVisible();
+    await expect(loginPage.passwordInput).toBeVisible();
+    await expect(loginPage.loginButton).toBeVisible();
   });
 
-  test('login page is displayed', async ({ page }) => {
-    await expect(loginpage.UsernameInput).toBeVisible();
-    await expect(loginpage.passwordInput).toBeVisible();
-    await expect(loginpage.loginButton).toBeVisible();
-    //await expect(page).toHaveURL(/route=account\/login/);
-  });
-
-  test('login with valid credentials', async ({ page }) => {
-    await loginpage.login(validUser.email, validUser.password);
-    //await loginpage.clickLoginLink();
-
-   
-
-
-    //await expect(page).toHaveURL(/route=account\/account/);
-    //await expect(loginpage.accountHeading).toBeVisible();
-    await expect(loginpage.logoutLink).toBeVisible();
+  test('login with valid credentials', async ({ loginPage }) => {
+    await loginPage.login(validUser.email, validUser.password);
+    await expect(loginPage.logoutLink).toBeVisible();
   });
 
   for (const user of invalidUsers) {
-    test(`login fails with ${user.title}`, async ({ page }) => {
+    test(`login fails with ${user.title}`, async ({ loginPage, page }) => {
+      page.on('dialog', async (dialog) => {
+        console.log('Dialog type:', dialog.type());
+        console.log('Dialog message:', dialog.message());
 
-       page.on('dialog', async (dialog) => {
-      console.log('Dialog type:', dialog.type());
-      console.log('Dialog message:', dialog.message());
+        await dialog.accept();
+      });
 
-      await dialog.accept();
-    });
-
-        await loginpage.login(user.email, user.password);
-     // await loginpage.login(user.email, user.password);
-
-      //await expect(loginpage.warningAlert).toBeVisible();
-      //await expect(page).toHaveURL(/route=account\/login/);
+      await loginPage.login(user.email, user.password);
     });
   }
 
   for (const user of emptyFieldCases) {
-    test(`login fails with ${user.title}`, async ({ page }) => {
-      await loginpage.login(user.email, user.password);
+    test(`login fails with ${user.title}`, async ({ loginPage }) => {
+      await loginPage.login(user.email, user.password);
 
-      await expect(loginpage.UsernameInput).toBeVisible();
-      //await expect(page).toHaveURL(/route=account\/login/);
+      await expect(loginPage.UsernameInput).toBeVisible();
     });
   }
 });

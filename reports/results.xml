@@ -1,0 +1,36 @@
+<testsuites id="" name="" tests="8" failures="0" skipped="8" errors="0" time="0.09520400000000007">
+<testsuite name="web\Login.spec.ts" timestamp="2026-10-18T04:01:58.938Z" hostname="chromium" tests="8" failures="0" skipped="8" time="0" errors="0">
+<testcase name="Login Page Tests @master › login page is displayed" classname="web\Login.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Login Page Tests @master › login with valid credentials" classname="web\Login.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Login Page Tests @master › login fails with unregistered email" classname="web\Login.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Login Page Tests @master › login fails with wrong password" classname="web\Login.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Login Page Tests @master › login fails with invalid email format" classname="web\Login.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Login Page Tests @master › login fails with empty email and password" classname="web\Login.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Login Page Tests @master › login fails with empty email only" classname="web\Login.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Login Page Tests @master › login fails with empty password only" classname="web\Login.spec.ts">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+</testsuites>

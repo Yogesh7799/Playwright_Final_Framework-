@@ -6,3 +6,9 @@
 - When scaffolding/adding project structure, wants only the required folders and placeholder files created; prefers preserving existing project files and avoiding unnecessary deletion or overwriting of existing implementation files. Confidence: 0.6
 - After changing project structure, wants the final directory tree shown and the newly created files explicitly identified. Confidence: 0.5
 - After implementing, wants a list of the files created or updated, each with a brief explanation of its purpose. Confidence: 0.6
+- In Playwright specs, prefers page objects to be injected via custom fixtures (extending `base` test) instead of constructing them manually with `new Page(page)` plus repeated `beforeEach` setup — i.e. migrates existing specs onto the fixture rather than leaving duplicated setup. Confidence: 0.5
+- Uses Jenkins for CI/CD pipelines (alongside GitHub Actions). Confidence: 0.7
+- For Playwright CI, prefers the agent to fit the environment actually available: initially favored a Docker agent on the official prebuilt Playwright image (browsers preinstalled), but when Docker/the Docker Pipeline plugin were not installable he chose to adapt the pipeline to the built-in Windows node (bat steps, preconfigured `node.js` tool) rather than install plugins or start Docker. Confidence: 0.4
+- Wants credentials/secrets supplied from the CI credential store (e.g., Jenkins "Username with password" bound to env vars) so nothing sensitive is committed to the repo. Confidence: 0.6
+- Uses Allure for test reporting and wants results generated and published in the CI job UI (e.g., Allure Jenkins plugin) rather than only raw artifacts. Confidence: 0.6
+- Comfortable handing over credentials/API tokens (e.g., a Jenkins API token) so the agent can drive external services end-to-end via the API rather than stepping the user through manual UI actions. Confidence: 0.4

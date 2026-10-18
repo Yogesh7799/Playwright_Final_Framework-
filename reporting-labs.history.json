@@ -1,0 +1,131 @@
+[
+ {
+  "time": 1792249460988,
+  "duration": 56378.592000000004,
+  "passed": 8,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "total": 8,
+  "tests": {
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login page is displayed": [
+    "p",
+    6345
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login with valid credentials": [
+    "p",
+    6751
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with unregistered email": [
+    "p",
+    4448
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with wrong password": [
+    "p",
+    4684
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with invalid email format": [
+    "p",
+    5472
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with empty email and password": [
+    "p",
+    4443
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with empty email only": [
+    "p",
+    17209
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with empty password only": [
+    "p",
+    3985
+   ]
+  }
+ },
+ {
+  "time": 1792293395720,
+  "duration": 198.90499999999975,
+  "passed": 0,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 8,
+  "total": 8,
+  "tests": {
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login page is displayed": [
+    "s",
+    0
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login with valid credentials": [
+    "s",
+    0
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with unregistered email": [
+    "s",
+    0
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with wrong password": [
+    "s",
+    0
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with invalid email format": [
+    "s",
+    0
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with empty email and password": [
+    "s",
+    0
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with empty email only": [
+    "s",
+    0
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with empty password only": [
+    "s",
+    0
+   ]
+  }
+ },
+ {
+  "time": 1792296118937,
+  "duration": 95.20400000000006,
+  "passed": 0,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 8,
+  "total": 8,
+  "tests": {
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login page is displayed": [
+    "s",
+    0
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login with valid credentials": [
+    "s",
+    0
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with unregistered email": [
+    "s",
+    0
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with wrong password": [
+    "s",
+    0
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with invalid email format": [
+    "s",
+    0
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with empty email and password": [
+    "s",
+    0
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with empty email only": [
+    "s",
+    0
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with empty password only": [
+    "s",
+    0
+   ]
+  }
+ }
+]

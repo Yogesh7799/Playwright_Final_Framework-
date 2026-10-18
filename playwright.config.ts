@@ -1,5 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
-
+import reportingLabs from './reporting-labs.config';
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -24,6 +24,8 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
    ['list'],
+
+   ['reporting-labs', reportingLabs],
 
 // Detailed console output
 
