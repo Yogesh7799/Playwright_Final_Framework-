@@ -1,36 +1,20 @@
-<testsuites id="" name="" tests="8" failures="0" skipped="8" errors="0" time="0.09520400000000007">
-<testsuite name="web\Login.spec.ts" timestamp="2026-10-18T04:01:58.938Z" hostname="chromium" tests="8" failures="0" skipped="8" time="0" errors="0">
-<testcase name="Login Page Tests @master › login page is displayed" classname="web\Login.spec.ts">
-<skipped>
-</skipped>
+<testsuites id="" name="" tests="8" failures="0" skipped="0" errors="0" time="29.755181">
+<testsuite name="web\Login.spec.ts" timestamp="2026-10-19T23:48:31.336Z" hostname="chromium" tests="8" failures="0" skipped="0" time="28.174" errors="0">
+<testcase name="Login Page Tests @master › login page is displayed" classname="web\Login.spec.ts" time="3.195">
 </testcase>
-<testcase name="Login Page Tests @master › login with valid credentials" classname="web\Login.spec.ts">
-<skipped>
-</skipped>
+<testcase name="Login Page Tests @master › login with valid credentials" classname="web\Login.spec.ts" time="5.27">
 </testcase>
-<testcase name="Login Page Tests @master › login fails with unregistered email" classname="web\Login.spec.ts">
-<skipped>
-</skipped>
+<testcase name="Login Page Tests @master › login fails with unregistered email @sanity" classname="web\Login.spec.ts" time="3.118">
 </testcase>
-<testcase name="Login Page Tests @master › login fails with wrong password" classname="web\Login.spec.ts">
-<skipped>
-</skipped>
+<testcase name="Login Page Tests @master › login fails with wrong password @sanity" classname="web\Login.spec.ts" time="3.509">
 </testcase>
-<testcase name="Login Page Tests @master › login fails with invalid email format" classname="web\Login.spec.ts">
-<skipped>
-</skipped>
+<testcase name="Login Page Tests @master › login fails with invalid email format @sanity" classname="web\Login.spec.ts" time="3.381">
 </testcase>
-<testcase name="Login Page Tests @master › login fails with empty email and password" classname="web\Login.spec.ts">
-<skipped>
-</skipped>
+<testcase name="Login Page Tests @master › login fails with empty email and password @sanity" classname="web\Login.spec.ts" time="2.577">
 </testcase>
-<testcase name="Login Page Tests @master › login fails with empty email only" classname="web\Login.spec.ts">
-<skipped>
-</skipped>
+<testcase name="Login Page Tests @master › login fails with empty email only @sanity" classname="web\Login.spec.ts" time="3.683">
 </testcase>
-<testcase name="Login Page Tests @master › login fails with empty password only" classname="web\Login.spec.ts">
-<skipped>
-</skipped>
+<testcase name="Login Page Tests @master › login fails with empty password only @sanity" classname="web\Login.spec.ts" time="3.441">
 </testcase>
 </testsuite>
 </testsuites>

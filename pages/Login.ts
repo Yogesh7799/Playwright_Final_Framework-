@@ -2,7 +2,7 @@ import { Locator, Page } from '@playwright/test';
 import dotenv from 'dotenv';
 
 export class Loginpage {
-  private readonly page: Page;
+   readonly page: Page;
 
   readonly loginlink:Locator;
   readonly UsernameInput: Locator;

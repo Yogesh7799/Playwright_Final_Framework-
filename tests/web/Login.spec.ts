@@ -1,4 +1,6 @@
 import { test, expect } from '../../fixtures/login.fixture';
+import { DialogUtils } from '../../utils/DialogUtils';
+
 
 const validUser = {
   email: process.env.LOGIN_USERNAME ?? 'Yogesh_17102026',
@@ -19,6 +21,8 @@ const emptyFieldCases = [
 
 test.describe('Login Page Tests @master', () => {
   test('login page is displayed', async ({ loginPage }) => {
+
+    await DialogUtils.acceptDialog(loginPage.page);
     await expect(loginPage.UsernameInput).toBeVisible();
     await expect(loginPage.passwordInput).toBeVisible();
     await expect(loginPage.loginButton).toBeVisible();
@@ -30,7 +34,7 @@ test.describe('Login Page Tests @master', () => {
   });
 
   for (const user of invalidUsers) {
-    test(`login fails with ${user.title}`, async ({ loginPage, page }) => {
+    test(`login fails with ${user.title} @sanity`, async ({ loginPage, page }) => {
       page.on('dialog', async (dialog) => {
         console.log('Dialog type:', dialog.type());
         console.log('Dialog message:', dialog.message());
@@ -43,7 +47,7 @@ test.describe('Login Page Tests @master', () => {
   }
 
   for (const user of emptyFieldCases) {
-    test(`login fails with ${user.title}`, async ({ loginPage }) => {
+    test(`login fails with ${user.title} @sanity`, async ({ loginPage }) => {
       await loginPage.login(user.email, user.password);
 
       await expect(loginPage.UsernameInput).toBeVisible();

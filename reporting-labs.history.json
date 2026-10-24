@@ -127,5 +127,118 @@
     0
    ]
   }
+ },
+ {
+  "time": 1792452758043,
+  "duration": 24970.275999999998,
+  "passed": 6,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "total": 6,
+  "tests": {
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with unregistered email @sanity": [
+    "p",
+    4500
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with wrong password @sanity": [
+    "p",
+    4629
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with invalid email format @sanity": [
+    "p",
+    3071
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with empty email and password @sanity": [
+    "p",
+    4619
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with empty email only @sanity": [
+    "p",
+    2857
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with empty password only @sanity": [
+    "p",
+    2859
+   ]
+  }
+ },
+ {
+  "time": 1792453102368,
+  "duration": 19012.488999999998,
+  "passed": 6,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "total": 6,
+  "tests": {
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with unregistered email @sanity": [
+    "p",
+    4117
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with wrong password @sanity": [
+    "p",
+    2957
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with invalid email format @sanity": [
+    "p",
+    2771
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with empty email and password @sanity": [
+    "p",
+    2711
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with empty email only @sanity": [
+    "p",
+    2410
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with empty password only @sanity": [
+    "p",
+    2601
+   ]
+  }
+ },
+ {
+  "time": 1792453711334,
+  "duration": 29755.181,
+  "passed": 8,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "total": 8,
+  "tests": {
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login page is displayed": [
+    "p",
+    3195
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login with valid credentials": [
+    "p",
+    5270
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with unregistered email @sanity": [
+    "p",
+    3118
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with wrong password @sanity": [
+    "p",
+    3509
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with invalid email format @sanity": [
+    "p",
+    3381
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with empty email and password @sanity": [
+    "p",
+    2577
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with empty email only @sanity": [
+    "p",
+    3683
+   ],
+   "chromium::tests/web/Login.spec.ts::Login Page Tests @master › login fails with empty password only @sanity": [
+    "p",
+    3441
+   ]
+  }
  }
 ]
